@@ -1,110 +1,140 @@
-import React, { Children } from 'react';
-import { motion } from 'framer-motion';
-import { Ship, Package, Truck, ShoppingBag, Wrench, Gauge } from 'lucide-react';
-const services = [{
-  icon: Ship,
-  title: 'Tyre Import',
-  description: 'Sourcing premium tyres directly from global manufacturers.'
-}, {
-  icon: Package,
-  title: 'Wholesale Supply',
-  description: 'Bulk distribution to garages and retailers across the UK.'
-}, {
-  icon: Truck,
-  title: 'Mobile Fitting',
-  description: 'Professional tyre fitting at your home or workplace.'
-}, {
-  icon: ShoppingBag,
-  title: 'Retail Sales',
-  description: 'Direct-to-consumer sales with competitive pricing.'
-}, {
-  icon: Wrench,
-  title: 'Vehicle Servicing',
-  description: 'Comprehensive maintenance and repair services.'
-}, {
-  icon: Gauge,
-  title: 'Performance Tyres',
-  description: 'Specialist tyres for high-performance vehicles.'
-}];
-const containerVariants = {
-  hidden: {
-    opacity: 0
+import React from "react";
+import { motion } from "framer-motion";
+import { Ship, Package, Truck, ShoppingBag, Wrench, Gauge } from "lucide-react";
+
+import importBg from "../../assets/import.jpeg";
+import wholesaleBg from "../../assets/wholesale.jpeg";
+import mobileBg from "../../assets/mobile1.jpeg";
+import retailBg from "../../assets/retail.jpeg";
+import serviceBg from "../../assets/service.jpeg";
+import performanceBg from "../../assets/performance.jpeg";
+
+const services = [
+  
+  {
+    icon: Truck,
+    title: "Mobile Fitting",
+    description: "Professional tyre fitting at your home or workplace.",
+    bgImage: mobileBg,
   },
+  {
+    icon: ShoppingBag,
+    title: "Retail Sales",
+    description: "Direct-to-consumer sales with competitive pricing.",
+    bgImage: retailBg,
+  },
+  {
+    icon: Wrench,
+    title: "Vehicle Servicing",
+    description: "Comprehensive maintenance and repair services.",
+    bgImage: serviceBg,
+  },
+  {
+    icon: Gauge,
+    title: "Performance Tyres",
+    description: "Specialist tyres for high-performance vehicles.",
+    bgImage: performanceBg,
+  },
+  {
+    icon: Ship,
+    title: "Tyre Import",
+    description: "Sourcing premium tyres directly from global manufacturers.",
+    bgImage: importBg,
+  },
+  {
+    icon: Package,
+    title: "Wholesale Supply",
+    description: "Bulk distribution to garages and retailers across the UK.",
+    bgImage: wholesaleBg,
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
-};
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-    scale: 0.9
+      delayChildren: 0.2,
+    },
   },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.9 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
 };
+
 export function ServicesGrid() {
-  return <section className="py-20 bg-gray-100 text-white">
+  return (
+    <section className="py-20 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div className="text-center mb-16" initial={{
-        opacity: 0,
-        y: 30
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} transition={{
-        duration: 0.6
-      }}>
+        {/* Heading */}
+        <div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-black">
             What We Do
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Comprehensive tyre solutions for businesses and individuals.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
-        once: true,
-        margin: '-100px'
-      }}>
-          {services.map((service, index) => <motion.div key={index} variants={cardVariants} whileHover={{
-          y: -8,
-          transition: {
-            duration: 0.3,
-            ease: 'easeOut'
-          }
-        }} className="group relative bg-[#1a1a1a] p-8 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#FDB913]/20 transition-shadow duration-300">
-              <div className="absolute top-0 left-0 w-full h-1 bg-[#FDB913] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+        {/* Services Grid */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {services.map((service, index) => (
+            <div
+              key={index}
+              variants={cardVariants}
+              whileHover={{ y: -8 }}
+              className="group relative p-8 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#FDB913]/20 transition-shadow duration-300 text-white"
+              style={{
+                backgroundImage: `url(${service.bgImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-black/50 pointer-events-none" />
 
-              <motion.div className="mb-6 inline-block p-4 bg-black rounded-lg group-hover:bg-[#FDB913] transition-colors duration-300 border border-[#333] group-hover:border-[#FDB913]" whileHover={{
-            rotate: [0, -10, 10, -10, 0]
-          }} transition={{
-            duration: 0.5
-          }}>
+              {/* Icon */}
+              <div className="relative mb-6 inline-flex p-4 bg-black/50 rounded-lg border border-[#333] group-hover:bg-[#FDB913]/80 group-hover:border-[#FDB913] transition-all duration-300">
                 <service.icon className="w-8 h-8 text-[#FDB913] group-hover:text-black transition-colors duration-300" />
-              </motion.div>
+              </div>
 
-              <h3 className="text-xl font-bold mb-3 text-white group-hover:text-[#FDB913] transition-colors">
+              {/* Content */}
+              <h3 className="relative text-xl font-bold mb-3 group-hover:text-[#FDB913] transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+              <p className="relative text-gray-200 group-hover:text-gray-100 transition-colors">
                 {service.description}
               </p>
-            </motion.div>)}
-        </motion.div>
+
+              {/* Hover Accent Line */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#FDB913] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+            </div>
+          ))}
+        </div>
       </div>
-    </section>;
+    </section>
+  );
 }

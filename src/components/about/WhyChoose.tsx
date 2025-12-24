@@ -31,12 +31,12 @@ const itemVariants = {
   }
 };
 export function WhyChoose() {
-  return <section className="py-20 bg-black relative overflow-hidden">
+  return <section className="py-20 bg-yellow-50 relative overflow-hidden">
       {/* Subtle pattern overlay */}
       <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#FDB913_1px,transparent_1px)] [background-size:20px_20px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div className="bg-[#1a1a1a] rounded-2xl p-8 md:p-16 border border-[#333]" initial={{
+        <div className="bg-white rounded-2xl p-8 md:p-16 border border-[#ffffff]" initial={{
         opacity: 0,
         scale: 0.95
       }} whileInView={{
@@ -49,7 +49,7 @@ export function WhyChoose() {
       }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <motion.h2 className="text-3xl md:text-5xl font-bold text-white mb-6" initial={{
+              <h2 className="text-3xl md:text-5xl font-bold text-black mb-6" initial={{
               opacity: 0,
               y: 30
             }} whileInView={{
@@ -60,9 +60,9 @@ export function WhyChoose() {
             }} transition={{
               duration: 0.6
             }}>
-                Why Choose <span className="text-[#FDB913]">Nutyre UK?</span>
-              </motion.h2>
-              <motion.p className="text-gray-300 text-lg mb-8" initial={{
+                Why Choose <span className="text-yellow-500">Nutyre?</span>
+              </h2>
+              <p className="text-black text-lg mb-8" initial={{
               opacity: 0
             }} whileInView={{
               opacity: 1
@@ -75,19 +75,19 @@ export function WhyChoose() {
                 We combine industry expertise with a commitment to service
                 excellence. Whether you're a wholesale partner or a retail
                 customer, we deliver quality you can trust.
-              </motion.p>
+              </p>
 
-              <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-4" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
               once: true
             }}>
-                {benefits.map((benefit, index) => <motion.div key={index} variants={itemVariants} className="flex items-center gap-3">
+                {benefits.map((benefit, index) => <div key={index} variants={itemVariants} className="flex items-center gap-3">
                     <CheckCircle2 className="w-6 h-6 text-[#FDB913] flex-shrink-0" />
-                    <span className="text-white font-medium">{benefit}</span>
-                  </motion.div>)}
-              </motion.div>
+                    <span className="text-black font-medium">{benefit}</span>
+                  </div>)}
+              </div>
             </div>
 
-            <motion.div className="relative h-full min-h-[300px] rounded-xl overflow-hidden shadow-2xl border-2 border-[#FDB913]/20" initial={{
+            <div className="relative h-full min-h-[300px] rounded-xl overflow-hidden shadow-2xl border-2 border-[#FDB913]/20" initial={{
             opacity: 0,
             scale: 0.9,
             rotateY: 15
@@ -110,9 +110,9 @@ export function WhyChoose() {
 />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>;
 }

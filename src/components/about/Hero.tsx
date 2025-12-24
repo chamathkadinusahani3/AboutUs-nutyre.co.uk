@@ -1,9 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// If image is in src/assets
+// Image from src/assets
 import heroImage from "../../assets/about-hero.jpeg";
-// OR if image is in public folder, comment above and use src="/about-hero.jpeg"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -31,16 +30,16 @@ const itemVariants = {
 export function Hero() {
   return (
     <section className="relative w-full bg-white overflow-hidden">
-      <motion.div
+      <div
         className="relative z-10 flex flex-col items-center justify-center min-h-[600px] px-4"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {/* Image Wrapper */}
-        <motion.div
+        <div
           variants={itemVariants}
-          className="relative w-full max-w-[1800px] h-[400px] rounded-xl overflow-hidden shadow-lg"
+          className="relative w-full max-w-[1800px] h-[500px] rounded-xl overflow-hidden shadow-lg"
         >
           {/* Hero Image */}
           <img
@@ -53,13 +52,17 @@ export function Hero() {
           <div className="absolute inset-0 bg-black/50" />
 
           {/* Text On Image */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-center">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
               ABOUT&nbsp;US
             </h1>
+
+            <h3 className="mt-4 text-white text-xl md:text-2xl max-w-xl">
+              “Committed to quality, customer satisfaction, and innovation in every service we offer.”
+            </h3>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

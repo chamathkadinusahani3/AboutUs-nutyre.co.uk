@@ -2,11 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 export function WhoWeAre() {
-  return <section className="py-20 bg-yellow-100 text-black">
+  return <section className="py-20 bg-yellow-400 text-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <motion.div initial={{
+          <div initial={{
           opacity: 0,
           x: -80
         }} whileInView={{
@@ -18,7 +18,7 @@ export function WhoWeAre() {
           duration: 0.8,
           ease: [0.22, 1, 0.36, 1]
         }}>
-            <motion.div className="inline-block px-4 py-1 mb-6 border-2 border-[#FDB913] rounded-full text-[#FDB913] text-sm font-bold uppercase tracking-wider" initial={{
+            <div className="inline-block px-4 py-1 mb-6 ml-(-15) text-[#000000] text-6xl font-bold uppercase tracking-wider" initial={{
             scale: 0
           }} whileInView={{
             scale: 1
@@ -29,8 +29,8 @@ export function WhoWeAre() {
             delay: 0.2
           }}>
               Who We Are
-            </motion.div>
-            <motion.h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-black" initial={{
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 ml-5 leading-tight text-black" initial={{
             opacity: 0,
             y: 20
           }} whileInView={{
@@ -43,9 +43,9 @@ export function WhoWeAre() {
             delay: 0.3
           }}>
               UK's Premier Tyre <br />
-              <span className="text-[#000000]">Importer & Distributor</span>
-            </motion.h2>
-            <motion.div className="space-y-6 text-black-300 text-lg leading-relaxed" initial={{
+              <span className="text-[#000000]">Mobile & Workshop Tyre Service</span>
+            </h2>
+            <div className="space-y-6 text-black-300 ml-5 text-lg leading-relaxed" initial={{
             opacity: 0
           }} whileInView={{
             opacity: 1
@@ -56,23 +56,12 @@ export function WhoWeAre() {
             delay: 0.5
           }}>
               <p>
-                <strong className="text-black">Nutyre UK Ltd</strong> is a
-                UK-based tyre importer, distributor, wholesaler, and automotive
-                service provider. We supply quality tyres to retailers, garages,
-                fleets, and individual motorists.
-              </p>
+                 Founded in 2023,<strong className="text-black">Nutyre UK Ltd</strong>is dedicated to keeping drivers safe on every journey. Our professional mobile and workshop tyre fitting services across the UK provide fast, convenient, and reliable solutions for individual motorists, fleets, and businesses, ensuring peace of mind on the road.</p>
               <p>
-                Beyond distribution, we pride ourselves on offering
-                comprehensive{' '}
-                <span className="text-[#000000] font-semibold">
-                  mobile and workshop tyre fitting services
-                </span>{' '}
-                across the UK, ensuring that our customers stay safe on the road
-                with minimal downtime.
-              </p>
-            </motion.div>
+               Built on a foundation of trust, quality, and safety, we are also a trusted tyre importer, distributor, and wholesaler, supplying premium tyres to garages, retailers, and automotive professionals nationwide.</p>
+            </div>
 
-            <motion.div className="mt-8" initial={{
+            <div className="mt-8" initial={{
             opacity: 0,
             x: -20
           }} whileInView={{
@@ -85,8 +74,8 @@ export function WhoWeAre() {
             delay: 0.7
           }}>
               
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
         
 

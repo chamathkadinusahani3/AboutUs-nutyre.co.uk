@@ -1,46 +1,11 @@
-import React from "react";
-import { motion } from "framer-motion";
-
-// Image from src/assets
 import heroImage from "../../assets/about-hero.jpeg";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
 
 export function Hero() {
   return (
     <section className="relative w-full bg-white overflow-hidden">
-      <div
-        className="relative z-10 flex flex-col items-center justify-center min-h-[600px] px-4"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-[600px] px-4">
         {/* Image Wrapper */}
-        <div
-          variants={itemVariants}
-          className="relative w-full max-w-[1800px] h-[500px] rounded-xl overflow-hidden shadow-lg"
-        >
+        <div className="relative w-full max-w-[1800px] h-[500px] rounded-xl overflow-hidden shadow-lg">
           {/* Hero Image */}
           <img
             src={heroImage}
@@ -58,7 +23,7 @@ export function Hero() {
             </h1>
 
             <h3 className="mt-4 text-white text-xl md:text-2xl max-w-xl">
-              “Committed to quality, customer satisfaction, and innovation in every service we offer.”
+              "Committed to quality, customer satisfaction, and innovation in every service we offer."
             </h3>
           </div>
         </div>

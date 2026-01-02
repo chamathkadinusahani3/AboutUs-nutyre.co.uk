@@ -1,5 +1,3 @@
-import React from "react";
-import { motion } from "framer-motion";
 import { Ship, Package, Truck, ShoppingBag, Wrench, Gauge } from "lucide-react";
 
 import importBg from "../../assets/import.jpeg";
@@ -10,7 +8,6 @@ import serviceBg from "../../assets/service.jpeg";
 import performanceBg from "../../assets/performance.jpeg";
 
 const services = [
-  
   {
     icon: Truck,
     title: "Mobile Fitting",
@@ -49,42 +46,12 @@ const services = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 50, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
 export function ServicesGrid() {
   return (
     <section className="py-20 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-black">
             What We Do
           </h2>
@@ -94,18 +61,10 @@ export function ServicesGrid() {
         </div>
 
         {/* Services Grid */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              variants={cardVariants}
-              whileHover={{ y: -8 }}
               className="group relative p-8 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#FDB913]/20 transition-shadow duration-300 text-white"
               style={{
                 backgroundImage: `url(${service.bgImage})`,
